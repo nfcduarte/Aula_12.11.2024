@@ -1,0 +1,23 @@
+#!/bin/bash
+#Análise de Conteudos de Ficheiros
+#Conte o numero de linhas e palavras de um ficheiro especificado pelo utilizador
+read -p "Digite o nome do ficheiro: " file
+
+#Verificar se o ficheiro existe:
+if [ -f "$file" ]; then
+    linhas=$(wc -l<"$file")
+    palavras=$(wc -w<"$file")
+
+echo "o ficheiro $file contem $linhas linhas e $palavras palavras"
+
+
+#Mostrar as primeiras 5 linhas:
+echo "As primeiras 5 linhas: "
+head -n 5 "$file"
+
+#Filtrar linhas com a palavra "erro"
+echo "Linhas contendo 'erro'"
+grep -i "erro" "$file"
+else 
+    echo "O ficheiro não existe"
+fi

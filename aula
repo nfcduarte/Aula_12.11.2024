@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#solicitar ao utilizador um directorio:
+#read -p "Digite o directorio destino: " dir
+
+#Verificar se o directorio existe:
+if [ -d "$1" ]; then
+    echo "O directorio existe"
+    cd "$1"
+else 
+    echo "O directorio não existe"
+    exist 1
+fi
+
+# Listar todos os ficheiros e diretórios no diretório atual
+echo "Conteudo do directorio"
+ls -la
+
+#Criar o subdirectorio backup
+mkdir -p backup
+echo "Pasta backup criada"
+
+#Mover todos os ficheiros:
+for file in *.txt; do
+    if [ -f "$file" ]; then
+    mv "$file" backup/
+    echo "ficheiro $file movido para pasta backup"
+fi
+done

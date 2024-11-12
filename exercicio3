@@ -1,0 +1,13 @@
+#!/bin/bash
+#Listar todos os processos
+#ps aux 
+
+#guardar numa pasta
+echo "Digite o nome do arquivo onde deseja salvar a lista de processos:"
+read nome_ficheiro
+
+file="${nome_ficheiro}_$(date +'%Y%m%d').txt"
+ps aux >> "$file"
+
+echo "lista de processos guradada em "$file"."
+
